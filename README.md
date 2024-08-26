@@ -7,15 +7,20 @@ Criação de uma API em Spring Boot para um sistema de ecommerce. A aplicação 
 ## Documentação
 
 [Requisitos]()
-[Diagrama ER ](entidade-relacionamento)]()
+
+[Diagrama ER - entidade-relacionamento]()
+
 [Diagrama relacional]()
+
 [Diagrama de Casos de uso]()
+
 [Diagrama de classes]()
+
 [Documentação das rotas]()
 
 ## Tecnológias utilizadas
 
-**Tabela 1: Dsecrição das tecnologias utilizadas.**
+**Tabela 1: Descrição das tecnologias utilizadas.**
 
 |Nome|Tecnologia|
 |-|-|
