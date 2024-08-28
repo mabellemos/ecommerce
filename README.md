@@ -1,4 +1,4 @@
-# Ecommerce
+# E-commerce
 
 ## Descrição
 
@@ -6,7 +6,7 @@ Criação de uma API em Spring Boot para um sistema de ecommerce. A aplicação 
 
 ## Documentação
 
-[Requisitos]()
+[Requisitos](https://compasso-my.sharepoint.com/:w:/r/personal/maria_lemos_pb_compasso_com_br/Documents/E-commerce%20-%20Documento%20de%20requisitos.docx?d=w2c4e2e7a401540fda64fa09a5f6545ac&csf=1&web=1&e=bVyVXH)
 
 [Diagrama ER - entidade-relacionamento]()
 
