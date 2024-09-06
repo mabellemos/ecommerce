@@ -12,12 +12,6 @@ Criação de uma API em Spring Boot para um sistema de e-commerce. A aplicação
 
 [Diagrama relacional](https://app.diagrams.net/#G1l0pWFFNvKHv_fHKAJMApuYs5km5QVyfg#%7B%22pageId%22%3A%22vU2Ry301y3x7Cmap89Ea%22%7D)
 
-[Diagrama de Casos de uso]()
-
-[Diagrama de classes]()
-
-[Documentação das rotas]()
-
 ## Tecnológias utilizadas
 
 **Tabela 1: Descrição das tecnologias utilizadas.**
