@@ -3,16 +3,9 @@ package com.compasso.ecommerce_app.core.model;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+
+import org.jetbrains.annotations.NotNull;
 
 @Entity
 @Table(name = "product")
@@ -44,9 +37,6 @@ public class Product implements Serializable {
     @NotNull
     @Column(name = "amount", nullable=true)
     private Integer amount;
-
-    @OneToOne(mappedBy = "product")
-    private Order order;
 
     @OneToOne
     @JoinColumn(name = "id", referencedColumnName = "id")
@@ -112,14 +102,6 @@ public class Product implements Serializable {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public Category getCategory() {

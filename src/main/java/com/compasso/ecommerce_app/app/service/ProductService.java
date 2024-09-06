@@ -7,6 +7,7 @@ import java.util.Optional;
 import com.compasso.ecommerce_app.app.dto.product.ProductDTO;
 import com.compasso.ecommerce_app.app.dto.product.ProductDisplayDTO;
 import com.compasso.ecommerce_app.core.exception.product.ProductException;
+import com.compasso.ecommerce_app.core.interfaces.repository.CategoryRepository;
 import com.compasso.ecommerce_app.core.interfaces.repository.ProductRepository;
 import com.compasso.ecommerce_app.core.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +34,7 @@ public class ProductService {
         productDTO.setPrice(product.getPrice());
         productDTO.setDateExpiration(product.getDateExpiration());
         productDTO.setAmount(product.getAmount());
-        productDTO.setIdCategory(product.getCategory().getIdCategory());
+        productDTO.setIdCategory(product.getCategory().getId());
 
         return productDTO;
     }
@@ -61,14 +62,14 @@ public class ProductService {
         productDisplayDTO.setPrice(product.getPrice());
         productDisplayDTO.setDateExpiration(product.getDateExpiration());
         productDisplayDTO.setAmount(product.getAmount());
-        productDisplayDTO.setIdCategory(product.getCategory().getIdCategory());
+        productDisplayDTO.setIdCategory(product.getCategory().getId());
         //productDisplayDTO.setListSale(product.getListSale());
 
         return productDisplayDTO;
     }
 
     //buscar lista de produtos
-    public List<ProductDTO> buscarTodos(){
+    public List<ProductDTO> getAll(){
         List<Product> listProducts = productRepository.findAll();
         List<ProductDTO> listProdutDTO = new ArrayList<>();
 
@@ -124,7 +125,7 @@ public class ProductService {
     }
 
     //editar um produto
-    public String alterProduct(Integer id, ProductDTO productDTO) throws ProductException {
+    public String editProduct(Integer id, ProductDTO productDTO) throws ProductException {
         Optional<Product> productSearch = productRepository.findById(id);
 
         if(productSearch.isPresent()) {
@@ -164,12 +165,12 @@ public class ProductService {
     }
 
     //deletar um produto
-    public String deleteProductId(Integer id) {
+    public String deleteProduct(Integer id) {
         productRepository.deleteById(id);
         return "Produto deletado com sucesso";
     }
 
-    /*public List<ReportDTO> report(){
+    /*public List<ReportDTO> reports(){
         return saleRepository.getSale();
     }*/
 }

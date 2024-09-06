@@ -80,7 +80,7 @@ public class AddressService {
     }
 
     //salvar pelo cep
-    public String saveAddress(AddressDTO addressDTO) {
+    public String save(AddressDTO addressDTO) {
         Address address = new Address();
         dtoToModel(address, addressDTO);
 
@@ -110,7 +110,7 @@ public class AddressService {
     }
 
     public List<AddressDisplayDTO> getAll() {
-        List<Address> listAddressModel = AddressRepository.findAll();
+        List<Address> listAddressModel = addressRepository.findAll();
         List<AddressDisplayDTO> listAddressDTO = new ArrayList<>();
 
         for (Address address : listAddressModel) {

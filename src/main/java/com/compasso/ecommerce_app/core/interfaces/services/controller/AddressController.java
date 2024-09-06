@@ -39,7 +39,7 @@ public class AddressController {
 
     @GetMapping("/list-address")
     public ResponseEntity<List<AddressDisplayDTO>> allList(){
-        return ResponseEntity.ok(addressService.allList());
+        return ResponseEntity.ok(addressService.getAll());
     }
 
     @GetMapping("/get-address/{idAddress}")
@@ -47,12 +47,10 @@ public class AddressController {
         return ResponseEntity.ok(addressService.getById(id));
     }
 
-
     @PutMapping("/update-address/{idEndereco}")
     public ResponseEntity<String> atualizar(@PathVariable Integer id, @RequestBody AddressDisplayDTO addressDisplayDTO) throws AddressException {
         return ResponseEntity.ok(addressService.update(id, addressDisplayDTO));
     }
-
 
     @DeleteMapping("delete-address/{idEndereco}")
     public ResponseEntity<Void> delete(@PathVariable Integer id){

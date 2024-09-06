@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.compasso.ecommerce_app.app.dto.category.CategoryDTO;
 import com.compasso.ecommerce_app.app.dto.category.CategoryDisplayDTO;
 import com.compasso.ecommerce_app.core.exception.category.CategoryException;
+import com.compasso.ecommerce_app.core.interfaces.repository.CategoryRepository;
 import com.compasso.ecommerce_app.core.interfaces.repository.ProductRepository;
 import com.compasso.ecommerce_app.core.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,7 @@ package com.compasso.ecommerce_app.core.interfaces.services.controller;
 
 import java.util.List;
 
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 
 import com.compasso.ecommerce_app.app.dto.sale.SaleDTO;
 import com.compasso.ecommerce_app.app.service.SaleService;
@@ -34,12 +34,12 @@ public class SaleController {
 
     @GetMapping("/get/{invoice}")
     public ResponseEntity<List<SaleDTO>> getByInvoice(@PathVariable String invoive) throws SaleException {
-        return ResponseEntity.ok(saleService.getByInvoice(invoice));
+        return ResponseEntity.ok(saleService.getByInvoice(invoive));
     }
 
     @PostMapping("/save")
     public ResponseEntity<String> saveSale(@RequestBody SaleDTO saleDTO) throws SaleException, EmailException, MessagingException{
-        return ResponseEntity.ok(saleService.saveSale(saleDTO));
+        return ResponseEntity.ok(saleService.save(saleDTO));
     }
 
     @PutMapping("/edit/{id}")

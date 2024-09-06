@@ -2,10 +2,11 @@ package com.compasso.ecommerce_app.core.security;
 
 import java.io.IOException;
 
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.compasso.ecommerce_app.core.security.users.UsersDetailsServ;
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -21,10 +22,10 @@ import io.jsonwebtoken.ExpiredJwtException;
 public class JwtRequestsFilter extends OncePerRequestFilter {
 
     @Autowired
-    private UsersDetailsService usersDetailsService;
+    private UsersDetailsServ usersDetailsServ;
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private JwtUtils jwtUtil;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
@@ -52,7 +53,7 @@ public class JwtRequestsFilter extends OncePerRequestFilter {
         // Once we get the token validate it.
         if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
 
-            UserDetails userDetails = this.usersDetailsService.loadUserByUsername(username);
+            UserDetails userDetails = this.usersDetailsServ.loadUserByUsername(username);
 
             // if token is valid configure Spring Security to manually set
             // authentication

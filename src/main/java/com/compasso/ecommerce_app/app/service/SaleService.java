@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import javax.mail.MessagingException;
+import jakarta.mail.MessagingException;
 
 import com.compasso.ecommerce_app.app.dto.product.ProductDTO;
 import com.compasso.ecommerce_app.app.dto.sale.SaleDTO;
@@ -120,7 +120,7 @@ public class SaleService {
             productEstoque.setAmount(productEstoque.getAmount() - product.getAmount());
             productRepository.save(productEstoque);
 
-            if(productEstoque.getAmount() < 6) {
+            if(productEstoque.getAmount() < 2) {
                 ProductDTO productDTO = new ProductDTO();
                 productDTO.setName(productEstoque.getName());
 
@@ -140,7 +140,7 @@ public class SaleService {
     }
 
     //salvar uma venda
-    public String saveSale(SaleDTO saleDTO) throws SaleException, EmailException, MessagingException {
+    public String save(SaleDTO saleDTO) throws SaleException, EmailException, MessagingException {
 
         for (SaleProductDTO saleProductDTO : saleDTO.getListProduct()) {
 

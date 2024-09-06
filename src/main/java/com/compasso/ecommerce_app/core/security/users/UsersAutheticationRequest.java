@@ -2,16 +2,16 @@ package com.compasso.ecommerce_app.core.security.users;
 
 import java.io.Serializable;
 
-public class UsersAuthenticationRequest implements Serializable {
+public class UsersAutheticationRequest implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String username;
     private String password;
 
-    public UsersAuthenticationRequest() {}
+    public UsersAutheticationRequest() {}
 
-    public UsersAuthenticationRequest(String username, String password) {
+    public UsersAutheticationRequest(String username, String password) {
         super();
         this.username = username;
         this.password = password;

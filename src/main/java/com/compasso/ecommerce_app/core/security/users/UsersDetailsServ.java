@@ -1,5 +1,6 @@
 package com.compasso.ecommerce_app.core.security.users;
 
+import com.compasso.ecommerce_app.core.interfaces.repository.UsersRepository;
 import com.compasso.ecommerce_app.core.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;

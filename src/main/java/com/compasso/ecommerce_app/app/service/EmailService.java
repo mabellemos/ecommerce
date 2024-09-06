@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 
 import com.compasso.ecommerce_app.app.dto.product.ProductDTO;
 import com.compasso.ecommerce_app.app.dto.sale.SaleDTO;

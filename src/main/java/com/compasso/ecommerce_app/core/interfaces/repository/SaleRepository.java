@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface SaleRepository extends JpaRepository<Sale, Integer> {
-    public default List<Sale> findByInvoive(String invoive, List<Sale> list){
+    public default List<Sale> findByInvoice(String invoive, List<Sale> list){
 
         List<Sale> listFound = new ArrayList<>();
 

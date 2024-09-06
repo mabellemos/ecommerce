@@ -1,14 +1,16 @@
 package com.compasso.ecommerce_app.core.interfaces.services.controller;
 import com.compasso.ecommerce_app.app.dto.users.UsersDTO;
 import com.compasso.ecommerce_app.app.service.UsersService;
-import com.compasso.ecommerce_app.core.security.JwtUtil;
-import com.compasso.ecommerce_app.core.security.users.UsersAuthenticationRequest;
+import com.compasso.ecommerce_app.core.security.JwtUtils;
+import com.compasso.ecommerce_app.core.security.users.UsersAutheticationRequest;
 import com.compasso.ecommerce_app.core.security.users.UsersAuthenticationResponse;
+import com.compasso.ecommerce_app.core.security.users.UsersDetailsServ;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/users")
@@ -20,13 +22,13 @@ public class UsersController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UsersDetailsService usersDetailsService;
+    private UsersDetailsServ usersDetailsServ;
 
     @Autowired
-    private JwtUtil jwtUtil;
+    private JwtUtils jwtUtil;
 
     @PostMapping("/save")
-    public ResponseEntity<Integer> save(@RequestBody @Valid UsersDTO usersDTO) {
+    public ResponseEntity<Integer> save(@RequestBody UsersDTO usersDTO) {
         return ResponseEntity.ok(usersService.save(usersDTO));
     }
 
@@ -36,15 +38,17 @@ public class UsersController {
     }
 
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createAutentication(@RequestBody UsersAuthenticationRequest user) throws Exception{
+    public ResponseEntity<?> createAutentication(@RequestBody UsersAutheticationRequest user) throws Exception{
+
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
         }catch(Exception e){
             throw new Exception("Senha incorreta", e);
         }
 
-        UserDetails userDetails = usersDetailsService.loadUserByUsername(user.getUsername());
-        String token = jwtUtil.generateToken(usersDetails);
+        UserDetails userDetails = usersDetailsServ.loadUserByUsername(user.getUsername());
+
+        String token = jwtUtil.generateToken(userDetails);
 
         return ResponseEntity.ok(new UsersAuthenticationResponse(token));
     }

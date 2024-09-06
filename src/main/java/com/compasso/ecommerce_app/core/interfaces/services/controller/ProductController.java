@@ -55,9 +55,9 @@ public class ProductController {
             return ResponseEntity.ok(productService.deleteProduct(id));
         }
 
-        @GetMapping("/report")
+        /*@GetMapping("/report")
         public ResponseEntity<List<ReportDTO>> reports(){
             return ResponseEntity.ok(productService.reports());
-        }
+        }*/
 
 }
