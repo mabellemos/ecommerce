@@ -1,17 +1,22 @@
 package com.compasso.ecommerce_app.core.model;
 
+import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-import org.jetbrains.annotations.NotNull;
 
 @Entity
 @Table(name = "address")
-public class Address {
+public class Address implements Serializable  {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -19,34 +24,28 @@ public class Address {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "number")
-    @NotNull
-    private String number;
+    @Column(name = "num")
+    private String num;
 
     @Column(name = "complement")
-    @NotNull
     private String complement;
 
     @Column(name = "district")
-    @NotNull
     private String district;
 
     @Column(name = "city")
-    @NotNull
     private String city;
 
     @Column(name = "state")
-    @NotNull
     private String state;
 
     @Column(name = "cep")
-    @NotNull
     private String cep;
 
-    /*@ManyToOne
-    @JoinColumn(name = "cliente_id", referencedColumnName = "cliente_cd_id")
+    @ManyToOne
+    @JoinColumn(name = "customer", referencedColumnName = "id")
     @JsonIgnore
-    private Cliente cliente;*/
+    private Customer customer;
 
     public Address() {
 
@@ -60,12 +59,20 @@ public class Address {
         this.id = id;
     }
 
-    public String getNumber() {
-        return number;
+    public String getNum() {
+        return num;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNum(String num) {
+        this.num = num;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getComplement() {
@@ -100,12 +107,12 @@ public class Address {
         this.cep = cep;
     }
 
-    /*public Customer getCustomer() {
+    public Customer getCustomer() {
         return customer;
     }
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }*/
+    }
 
 }

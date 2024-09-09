@@ -1,13 +1,18 @@
 package com.compasso.ecommerce_app.core.model;
 
-import jakarta.persistence.*;
-
-import org.jetbrains.annotations.NotNull;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+
 @Entity
-@Table(name="sale")
+@Table(name = "sale")
 public class Sale {
 
     @Id
@@ -16,25 +21,22 @@ public class Sale {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name="id", referencedColumnName="id")
+    @JoinColumn(name="id_customer_fk", referencedColumnName="id")
     @JsonIgnore
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name="id", referencedColumnName="id")
+    @JoinColumn(name="id_product_fk", referencedColumnName="id")
     @JsonIgnore
     private Product product;
 
     @Column(name="value")
-    @NotNull
     private Double value;
 
     @Column(name="invoice")
-    @NotNull
     private String invoice;
 
     @Column(name="amount")
-    @NotNull
     private Integer amount;
 
     public Sale() {
@@ -88,5 +90,4 @@ public class Sale {
     public void setAmount(Integer amount) {
         this.amount = amount;
     }
-
 }

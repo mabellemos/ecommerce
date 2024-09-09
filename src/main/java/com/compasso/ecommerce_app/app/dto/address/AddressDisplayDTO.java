@@ -3,7 +3,7 @@ package com.compasso.ecommerce_app.app.dto.address;
 public class AddressDisplayDTO {
 
     private Integer id;
-    private String number;
+    private Integer num;
     private String complement;
     private String district;
     private String state;
@@ -29,12 +29,12 @@ public class AddressDisplayDTO {
         this.cep = cep;
     }
 
-    public String getNumber() {
-        return number;
+    public Integer getNum() {
+        return num;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
     public String getComplement() {

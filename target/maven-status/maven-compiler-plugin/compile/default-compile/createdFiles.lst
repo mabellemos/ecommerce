@@ -13,7 +13,6 @@ com/compasso/ecommerce_app/core/security/users/UsersDetailsServ.class
 com/compasso/ecommerce_app/core/model/Product.class
 com/compasso/ecommerce_app/app/dto/address/AddressDisplayDTO.class
 com/compasso/ecommerce_app/core/model/Customer.class
-com/compasso/ecommerce_app/core/config/SpringFoxConfig.class
 com/compasso/ecommerce_app/app/service/EmailService.class
 com/compasso/ecommerce_app/app/dto/sale/SaleProductDTO.class
 com/compasso/ecommerce_app/app/service/UsersService.class
@@ -50,6 +49,7 @@ com/compasso/ecommerce_app/core/security/users/UsersAuthenticationResponse.class
 com/compasso/ecommerce_app/core/interfaces/services/controller/ProductController.class
 com/compasso/ecommerce_app/app/dto/address/AddressDTO.class
 com/compasso/ecommerce_app/core/model/Sale.class
+com/compasso/ecommerce_app/config/SpringDocConfig.class
 com/compasso/ecommerce_app/app/dto/category/CategoryDisplayDTO.class
 com/compasso/ecommerce_app/app/dto/address/AddressCepDTO.class
 com/compasso/ecommerce_app/core/exception/ExceptionController.class

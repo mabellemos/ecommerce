@@ -8,7 +8,7 @@ public class AddressDTO implements Serializable {
 
     private Integer id;
     private String cep;
-    private String number;
+    private Integer num;
     private String complement;
 
     public AddressDTO() {
@@ -31,12 +31,12 @@ public class AddressDTO implements Serializable {
         this.cep = cep;
     }
 
-    public String getNumber() {
-        return number;
+    public Integer getNum() {
+        return num;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setNum(Integer num) {
+        this.num = num;
     }
 
     public String getComplement() {

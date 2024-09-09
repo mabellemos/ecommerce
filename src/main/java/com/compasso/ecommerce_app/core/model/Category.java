@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 import org.jetbrains.annotations.NotNull;
 
 @Entity
-@Table(name="categoria")
+@Table(name="category")
 public class Category implements Serializable{
 
         private static final long serialVersionUID = 1L;
@@ -18,11 +18,9 @@ public class Category implements Serializable{
         private Integer id;
 
         @Column(name="name")
-        @NotNull
         private String name;
 
         @Column(name="description")
-        @NotNull
         private String description;
 
         @OneToMany(mappedBy = "category", cascade = CascadeType.REMOVE)

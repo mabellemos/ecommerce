@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.compasso.ecommerce_app.app.dto.customer.CustomerDTO;
 import com.compasso.ecommerce_app.app.dto.customer.CustomerDisplayDTO;
 import com.compasso.ecommerce_app.core.exception.customer.CustomerException;
-import com.compasso.ecommerce_app.core.interfaces.repository.CustomerRepository;
 import com.compasso.ecommerce_app.core.model.Customer;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.compasso.ecommerce_app.core.repository.CustomerRepository;
 
 @Service
 public class CustomerService {
@@ -18,11 +19,10 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    // Model para DTO
     private CustomerDTO modelParaDTO(Customer customer, CustomerDTO customerDTO) {
         customerDTO.setId(customer.getId());
         customerDTO.setName(customer.getName());
-        //customerDTO.setUserCustomer(customer.getUserCustomer());
+        customerDTO.setUserCustomer(customer.getUserCustomer());
         customerDTO.setEmail(customer.getEmail());
         customerDTO.setCpf(customer.getCpf());
         customerDTO.setDateNasc(customer.getDateNasc());
@@ -31,10 +31,9 @@ public class CustomerService {
         return customerDTO;
     }
 
-    // DTO para Model
     private Customer dtoForModel(Customer customer, CustomerDTO customerDTO) {
         customer.setName(customerDTO.getName());
-        //customer.setUserCustomer(customerDTO.getUserCustomer());
+        customer.setUserCustomer(customerDTO.getUserCustomer());
         customer.setEmail(customerDTO.getEmail());
         customer.setCpf(customerDTO.getCpf());
         customer.setDateNasc(customerDTO.getDateNasc());
@@ -43,23 +42,21 @@ public class CustomerService {
         return customer;
     }
 
-    // Model Para Exibicao
     private CustomerDisplayDTO modelForDisplay(CustomerDisplayDTO displayCustomer, Customer customer) {
 
         displayCustomer.setId(customer.getId());
         displayCustomer.setName(customer.getName());
-        //displayCustomer.setUserCustomer(customer.getUserCustomer());
+        displayCustomer.setUserCustomer(customer.getUserCustomer());
         displayCustomer.setEmail(customer.getEmail());
         displayCustomer.setCpf(customer.getCpf());
         displayCustomer.setDateNasc(customer.getDateNasc());
         displayCustomer.setTelephone(customer.getTelephone());
         displayCustomer.setListAddress(customer.getListAddress());
-        //displayCustomer.setListOrder(customer.getListOrder());
+        displayCustomer.setListOrder(customer.getListOrder());
 
         return displayCustomer;
     }
 
-    // Salvar
     public String save(CustomerDTO customerDTO) {
         Customer customer = new Customer();
         Customer customerSave = dtoForModel(customer, customerDTO);
@@ -68,7 +65,6 @@ public class CustomerService {
         return "O cliente foi criado com o id: " + customer.getId();
     }
 
-    // Salvar Varios
     public void saveAllList(List<CustomerDTO> list) {
         List<Customer> listCustomer = new ArrayList<>();
 
@@ -81,7 +77,6 @@ public class CustomerService {
         customerRepository.saveAll(listCustomer);
     }
 
-    // Buscar Por Id
     public CustomerDisplayDTO getById(Integer id) throws CustomerException {
         Optional<Customer> customer = customerRepository.findById(id);
 
@@ -99,7 +94,6 @@ public class CustomerService {
         throw new CustomerException("Cliente não encontrado");
     }
 
-    // Buscar Todos
     public List<CustomerDTO> getAll() {
         List<Customer> listCustomer = customerRepository.findAll();
 
@@ -116,7 +110,6 @@ public class CustomerService {
         return listCustomerDTO;
     }
 
-    // Atualizar
     public String update(Integer id, CustomerDTO customerDTO) throws CustomerException {
 
         Optional<Customer> customer = customerRepository.findById(id);
@@ -128,9 +121,9 @@ public class CustomerService {
             if (customerDTO.getName() != null) {
                 customerDate.setName(customerDTO.getName());
             }
-            /*if (customerDTO.getUserCustomer() != null) {
-                customerDate.setUserCustomer(customerDTO.getUsersCustomer());
-            }*/
+            if (customerDTO.getUserCustomer() != null) {
+                customerDate.setUserCustomer(customerDTO.getUserCustomer());
+            }
             if (customerDTO.getEmail() != null) {
                 customerDate.setEmail(customerDTO.getEmail());
             }
@@ -151,7 +144,6 @@ public class CustomerService {
         throw new CustomerException("O cliente nao foi atualizado");
     }
 
-    // Deletar
     public void delete(Integer id) {
         customerRepository.deleteById(id);
     }

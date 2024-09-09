@@ -9,7 +9,6 @@ public class UsersAuthenticationResponse {
     }
 
     public UsersAuthenticationResponse(String token) {
-        super();
         this.token = token;
     }
 

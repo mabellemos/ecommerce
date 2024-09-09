@@ -12,7 +12,6 @@ public class UsersAutheticationRequest implements Serializable {
     public UsersAutheticationRequest() {}
 
     public UsersAutheticationRequest(String username, String password) {
-        super();
         this.username = username;
         this.password = password;
     }

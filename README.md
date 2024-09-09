@@ -22,5 +22,3 @@ Criação de uma API em Spring Boot para um sistema de e-commerce. A aplicação
 |Framework|Spring Boot|
 |Documentação|Diagramas ER, relacional, casos de uso e classes|
 |Arquitetura de Software|Hexagonal Architecture|
-
-## Considerações finais

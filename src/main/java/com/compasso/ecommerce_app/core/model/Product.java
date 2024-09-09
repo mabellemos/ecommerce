@@ -18,35 +18,29 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull
     @Column(name = "name", unique = true, length=50, nullable=false)
     private String name;
 
-    @NotNull
     @Column(name = "description", columnDefinition="TEXT", nullable=true)
     private String description;
 
-    @NotNull
     @Column(name = "price")
     private Double price;
 
-    @NotNull
     @Column(name = "date_expiration")
     private LocalDate dateExpiration;
 
-    @NotNull
     @Column(name = "amount", nullable=true)
     private Integer amount;
 
     @OneToOne
-    @JoinColumn(name = "id", referencedColumnName = "id")
+    @JoinColumn(name = "category", referencedColumnName = "id")
     private Category category;
 
     public Product() {
     }
 
-    public Product(Integer id, @NotNull String name, @NotNull String description,
-                   @NotNull Double price, @NotNull LocalDate dataExpiration, @NotNull Integer amount) {
+    public Product(Integer id, String name,  String description, double price, LocalDate dateExpiration, Integer amount) {
         super();
         this.id = id;
         this.name = name;

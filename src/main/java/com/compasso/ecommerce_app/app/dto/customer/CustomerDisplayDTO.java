@@ -1,10 +1,11 @@
 package com.compasso.ecommerce_app.app.dto.customer;
 
-import com.compasso.ecommerce_app.core.model.Address;
-
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
+
+import com.compasso.ecommerce_app.core.model.Address;
+import com.compasso.ecommerce_app.core.model.Sale;
 
 public class CustomerDisplayDTO implements Serializable{
 
@@ -12,18 +13,16 @@ public class CustomerDisplayDTO implements Serializable{
 
     private Integer id;
     private String name;
-    //private String clienteUsuario;
+    private String userCustomer;
     private String email;
     private String cpf;
     private LocalDate dateNasc;
     private String telephone;
-    //private List<Movimentacao> listaPedidos;
+    private List<Sale> listOrder;
     private List<Address> listAddress;
 
-    // Constructor
     public CustomerDisplayDTO() {}
 
-    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -40,13 +39,13 @@ public class CustomerDisplayDTO implements Serializable{
         this.name = name;
     }
 
-    /*public String getUserCustomer() {
+    public String getUserCustomer() {
         return userCustomer;
-    }*/
+    }
 
-    /*public void setClienteUsuario(String clienteUsuario) {
-        this.clienteUsuario = clienteUsuario;
-    }*/
+    public void setUserCustomer(String userCustomer) {
+        this.userCustomer = userCustomer;
+    }
 
     public String getEmail() {
         return email;
@@ -80,13 +79,13 @@ public class CustomerDisplayDTO implements Serializable{
         this.telephone = telephone;
     }
 
-    /*public List<Movimentacao> getListaPedidos() {
-        return listaPedidos;
-    }*/
+    public List<Sale> getListOrder() {
+        return listOrder;
+    }
 
-    /*public void setListaPedidos(List<Movimentacao> listaPedidos) {
-        this.listaPedidos = listaPedidos;
-    }*/
+    public void setListOrder(List<Sale> listOrder) {
+        this.listOrder = listOrder;
+    }
 
     public List<Address> getListAddress() {
         return listAddress;

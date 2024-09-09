@@ -17,40 +17,32 @@ public class Customer {
 	private Integer id;
 
 	@Column(name = "name")
-	@NotNull
 	private String name;
 
-	/*@Column(name = "userCustomer")
-	@NotNull
-	private String userCustomer;*/
+	@Column(name = "userCustomer")
+	private String userCustomer;
 
 	@Column(name = "email")
-	@NotNull
 	private String email;
 
 	@Column(name = "cpf")
-	@NotNull
 	private String cpf;
 
 	@Column(name = "dateNasc")
-	@NotNull
 	private LocalDate dateNasc;
 
 	@Column(name = "telephone")
-	@NotNull
 	private String telephone;
 	
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
 	private List<Address> listAddress;
 
-	/*@OneToMany(mappedBy="customer", cascade = CascadeType.REMOVE)
-	private List<Movimentacao> listOrder;*/
+	@OneToMany(mappedBy="customer", cascade = CascadeType.REMOVE)
+	private List<Sale> listOrder;
 
-	// Constructor
 	public Customer() {
 	}
 
-	// Getters and Setters
 	public Integer getId() {
 		return id;
 	}
@@ -67,13 +59,13 @@ public class Customer {
 		this.name = name;
 	}
 
-	/*public String getUserCustomer() {
+	public String getUserCustomer() {
 		return userCustomer;
-	}*/
+	}
 
-	/*public void setUserCustomer(String userCustomer) {
+	public void setUserCustomer(String userCustomer) {
 		this.userCustomer = userCustomer;
-	}*/
+	}
 
 	public String getEmail() {
 		return email;
@@ -107,14 +99,6 @@ public class Customer {
 		this.telephone = telephone;
 	}
 
-	/*public String getTelefoneSec() {
-		return telefoneSec;
-	}*/
-
-	/*public void setTelefoneSec(String telefoneSec) {
-		this.telefoneSec = telefoneSec;
-	}*/
-
 	public List<Address> getListAddress() {
 		return listAddress;
 	}
@@ -123,12 +107,12 @@ public class Customer {
 		this.listAddress = listAddress;
 	}
 
-	/*public List<Movimentacao> getListaPedidos() {
-		return listaPedidos;
-	}*/
+	public List<Sale> getListOrder() {
+		return listOrder;
+	}
 
-	/*public void setListaPedidos(List<Movimentacao> listaPedidos) {
-		this.listaPedidos = listaPedidos;
-	}*/
+	public void setListOrder(List<Sale> listOrder) {
+		this.listOrder = listOrder;
+	}
 
 }

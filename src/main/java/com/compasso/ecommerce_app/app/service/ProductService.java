@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.compasso.ecommerce_app.app.dto.product.ProductDTO;
 import com.compasso.ecommerce_app.app.dto.product.ProductDisplayDTO;
 import com.compasso.ecommerce_app.core.exception.product.ProductException;
-import com.compasso.ecommerce_app.core.interfaces.repository.CategoryRepository;
-import com.compasso.ecommerce_app.core.interfaces.repository.ProductRepository;
 import com.compasso.ecommerce_app.core.model.Product;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.compasso.ecommerce_app.core.repository.CategoryRepository;
+import com.compasso.ecommerce_app.core.repository.ProductRepository;
 
 @Service
 public class ProductService {
@@ -22,10 +23,7 @@ public class ProductService {
     @Autowired
     CategoryRepository categoryRepository;
 
-    /*@Autowired
-    SaleRepository saleRepository;*/
 
-    //camada DTO
     public ProductDTO modelToDTO(Product product, ProductDTO productDTO) {
 
         productDTO.setId(product.getId());
@@ -63,12 +61,10 @@ public class ProductService {
         productDisplayDTO.setDateExpiration(product.getDateExpiration());
         productDisplayDTO.setAmount(product.getAmount());
         productDisplayDTO.setIdCategory(product.getCategory().getId());
-        //productDisplayDTO.setListSale(product.getListSale());
 
         return productDisplayDTO;
     }
 
-    //buscar lista de produtos
     public List<ProductDTO> getAll(){
         List<Product> listProducts = productRepository.findAll();
         List<ProductDTO> listProdutDTO = new ArrayList<>();
@@ -83,8 +79,6 @@ public class ProductService {
 
     }
 
-    //buscar produto por Id
-    //vem junto a lista de itens
     public ProductDisplayDTO getById(Integer id) throws ProductException {
         Optional<Product> productSearch = productRepository.findById(id);
         ProductDisplayDTO productDisplayDTO = new ProductDisplayDTO();
@@ -99,7 +93,6 @@ public class ProductService {
 
     }
 
-    //salvar um produto
     public String saveProduct(ProductDTO productDTO) {
         Product product = new Product();
         dtoToModel(productDTO, product);
@@ -108,8 +101,6 @@ public class ProductService {
         return "Produto salvo com sucesso com id " + product.getId();
     }
 
-
-    //salvar lista de produtos
     public String saveListProducts(List<ProductDTO> listProductsDTO) {
         List<Product> listProducts = new ArrayList<>();
 
@@ -124,7 +115,6 @@ public class ProductService {
         return "Todos os produtos foram salvos!";
     }
 
-    //editar um produto
     public String editProduct(Integer id, ProductDTO productDTO) throws ProductException {
         Optional<Product> productSearch = productRepository.findById(id);
 
@@ -164,7 +154,6 @@ public class ProductService {
 
     }
 
-    //deletar um produto
     public String deleteProduct(Integer id) {
         productRepository.deleteById(id);
         return "Produto deletado com sucesso";

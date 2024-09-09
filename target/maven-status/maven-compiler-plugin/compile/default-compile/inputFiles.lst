@@ -20,7 +20,7 @@
 /home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/app/service/ProductService.java
 /home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/app/service/SaleService.java
 /home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/app/service/UsersService.java
-/home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/core/config/SpringFoxConfig.java
+/home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/config/SpringDocConfig.java
 /home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/core/exception/ApiError.java
 /home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/core/exception/EmailException.java
 /home/mabellemos/Documentos/projects/web/ecommerce-app/src/main/java/com/compasso/ecommerce_app/core/exception/ExceptionController.java

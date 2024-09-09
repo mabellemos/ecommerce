@@ -4,16 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-import jakarta.mail.MessagingException;
-import jakarta.mail.internet.MimeMessage;
-
-import com.compasso.ecommerce_app.app.dto.product.ProductDTO;
-import com.compasso.ecommerce_app.app.dto.sale.SaleDTO;
-import com.compasso.ecommerce_app.app.dto.sale.SaleProductDTO;
-import com.compasso.ecommerce_app.core.exception.EmailException;
-import com.compasso.ecommerce_app.core.interfaces.repository.ProductRepository;
-import com.compasso.ecommerce_app.core.interfaces.repository.SaleRepository;
-import com.compasso.ecommerce_app.core.model.Sale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -22,14 +12,21 @@ import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
+import com.compasso.ecommerce_app.app.dto.product.ProductDTO;
+import com.compasso.ecommerce_app.app.dto.sale.SaleDTO;
+import com.compasso.ecommerce_app.app.dto.sale.SaleProductDTO;
+import com.compasso.ecommerce_app.core.exception.EmailException;
+import com.compasso.ecommerce_app.core.model.Sale;
+import com.compasso.ecommerce_app.core.repository.SaleRepository;
+
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
+
 @Component
 public class EmailService {
 
     @Autowired
     private JavaMailSender emailSender;
-
-    @Autowired
-    ProductRepository productRepository;
 
     @Autowired
     SaleRepository saleRepository;

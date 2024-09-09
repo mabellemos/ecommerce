@@ -3,22 +3,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.compasso.ecommerce_app.app.dto.category.CategoryDTO;
 import com.compasso.ecommerce_app.app.dto.category.CategoryDisplayDTO;
 import com.compasso.ecommerce_app.core.exception.category.CategoryException;
-import com.compasso.ecommerce_app.core.interfaces.repository.CategoryRepository;
-import com.compasso.ecommerce_app.core.interfaces.repository.ProductRepository;
 import com.compasso.ecommerce_app.core.model.Category;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.compasso.ecommerce_app.core.repository.CategoryRepository;
 
 @Service
 public class CategoryService {
 
     @Autowired
     CategoryRepository categoryRepository;
-
-    ProductRepository productRepository;
 
     public Category dtoModel(CategoryDTO categoryDTO, Category category) {
 

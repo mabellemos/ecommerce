@@ -1,5 +1,7 @@
 package com.compasso.ecommerce_app.app.dto.product;
 
+import com.compasso.ecommerce_app.core.model.Sale;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,8 +14,7 @@ public class ProductDisplayDTO {
     private LocalDate dateExpiration;
     private Integer amount;
     private Integer idCategory;
-    //private List<Movimentacao> listaVendas;
-
+    private List<Sale> listSale;
 
     public ProductDisplayDTO() {
 
@@ -75,12 +76,11 @@ public class ProductDisplayDTO {
         this.idCategory = idCategory;
     }
 
-    /*public List<Movimentacao> getListaVendas() {
-        return listaVendas;
+    public List<Sale> getListSale() {
+        return listSale;
     }
 
-
-    public void setListaVendas(List<Movimentacao> listaVendas) {
-        this.listaVendas = listaVendas;
-    }*/
+    public void setListSale(List<Sale> listSale) {
+        this.listSale = listSale;
+    }
 }

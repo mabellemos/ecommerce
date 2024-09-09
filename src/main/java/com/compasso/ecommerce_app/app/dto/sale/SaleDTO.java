@@ -6,6 +6,7 @@ public class SaleDTO {
 
     private Integer id;
     private String invoice;
+    private Integer idCustomer;
     private List<SaleProductDTO> listProduct;
 
     public SaleDTO() {
@@ -16,9 +17,18 @@ public class SaleDTO {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdCustomer(Integer idCustomer) {
+        this.idCustomer = idCustomer;
     }
+
+    public Integer getIdCustomer() {
+        return id;
+    }
+
+    public void setId(Integer idCustomer) {
+        this.idCustomer = idCustomer;
+    }
+
 
     public String getInvoice() {
         return invoice;
@@ -32,7 +42,7 @@ public class SaleDTO {
         return listProduct;
     }
 
-    public void setListProduct(List<SaleProductDTO> listProducto) {
+    public void setListProduct(List<SaleProductDTO> listProduct) {
         this.listProduct = listProduct;
     }
 }

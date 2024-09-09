@@ -1,7 +1,8 @@
 package com.compasso.ecommerce_app.core.security.users;
 
-import com.compasso.ecommerce_app.core.interfaces.repository.UsersRepository;
-import com.compasso.ecommerce_app.core.model.Users;
+import java.util.ArrayList;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -9,8 +10,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Optional;
+import com.compasso.ecommerce_app.core.model.Users;
+import com.compasso.ecommerce_app.core.repository.UsersRepository;
 
 @Service
 public class UsersDetailsServ implements UserDetailsService {
@@ -27,7 +28,7 @@ public class UsersDetailsServ implements UserDetailsService {
             return new User(u.getUsername(), u.getPassword(), new ArrayList<>());
         }
 
-        throw new UsernameNotFoundException("Usuario incorreto");
+        throw new UsernameNotFoundException("Usuário incorreto");
     }
 
 }

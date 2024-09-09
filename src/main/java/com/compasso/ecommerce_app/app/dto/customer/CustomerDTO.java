@@ -9,18 +9,15 @@ public class CustomerDTO implements Serializable {
 
     private Integer id;
     private String name;
-    //private String clienteUsuario;
+    private String userCustomer;
     private String email;
     private String cpf;
     private LocalDate dateNasc;
     private String telephone;
-    //private String telefoneSec;
 
-    // Constructor
     public CustomerDTO() {
     }
 
-    // Getters and Setters
     public Integer getId() {
         return id;
     }
@@ -37,13 +34,13 @@ public class CustomerDTO implements Serializable {
         this.name = name;
     }
 
-    /*public String getUserCustomer() {
+    public String getUserCustomer() {
         return userCustomer;
-    }*/
+    }
 
-    /*public void setClienteUsuario(String clienteUsuario) {
-        this.clienteUsuario = clienteUsuario;
-    }*/
+    public void setUserCustomer(String userCustomer) {
+        this.userCustomer = userCustomer;
+    }
 
     public String getEmail() {
         return email;
